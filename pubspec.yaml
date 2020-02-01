@@ -45,6 +45,8 @@ flutter:
     - image/motos.png
     - image/motos_agendamentos.png
     - image/Yamaha_YZF.jpg
+    - image/Fireblade.jpeg
+    - image/Kawasaki.jpeg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

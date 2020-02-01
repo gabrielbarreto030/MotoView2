@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:motovibe/screen/Inicio.dart';
 
-void main() => runApp(home());
+void main() => runApp(Home());
 
-class home extends StatelessWidget {
+class Home extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

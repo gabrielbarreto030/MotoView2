@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:motovibe/model/Moto.dart';
 
 class AluguelMotos extends StatefulWidget {
   @override
@@ -8,10 +9,19 @@ class AluguelMotos extends StatefulWidget {
     return StateAluguelMotos();
   }
 }
+ int i=0;
 
 class StateAluguelMotos extends State<AluguelMotos> {
+ 
+   List<Moto> listamoto =new List();
+  
+   
   @override
   Widget build(BuildContext context) {
+
+    listamoto.add(Moto("image/Yamaha_YZF.jpg","YAMAHA", 20));
+    listamoto.add(Moto("image/Fireblade.jpeg","FIREBLADE", 20));
+    listamoto.add(Moto("image/Kawasaki.jpeg","KAWASAKI", 30));
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -38,12 +48,12 @@ class StateAluguelMotos extends State<AluguelMotos> {
                     )
                   ],
                   image: DecorationImage(
-                    image: AssetImage("image/Yamaha_YZF.jpg"),
+                    image: AssetImage(listamoto[i].imagem),
                     fit: BoxFit.fill,
                   ),
                 ),
                 child: Text(
-                  "YAMAHA",
+                  listamoto[i].nome,
                   style: TextStyle(
                     fontWeight:FontWeight.bold ,
                     fontSize: 20,
@@ -64,7 +74,11 @@ class StateAluguelMotos extends State<AluguelMotos> {
                       child: IconButton(
                         icon: Icon(Icons.navigate_before),
                         color: Colors.white,
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            i--;
+                          });
+                        },
                       ),
                     ),
                   ),
@@ -90,7 +104,12 @@ class StateAluguelMotos extends State<AluguelMotos> {
                       child: IconButton(
                         icon: Icon(Icons.navigate_next),
                         color: Colors.black,
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            i++;
+                          });
+                          
+                        },
                       ),
                     ),
                   ),
