@@ -9,25 +9,33 @@ class AluguelMotos extends StatefulWidget {
     return StateAluguelMotos();
   }
 }
- int i=0;
+
+int i = 0;
+bool buttonenable;
 
 class StateAluguelMotos extends State<AluguelMotos> {
- 
-   List<Moto> listamoto =new List();
-  
-   
+  List<Moto> listamoto = new List();
+  void AtivaBotao() {
+    setState(() {
+      if (i == 0) {
+        i = 2;
+      } else {
+        i--;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-
-    listamoto.add(Moto("image/Yamaha_YZF.jpg","YAMAHA", 20));
-    listamoto.add(Moto("image/Fireblade.jpeg","FIREBLADE", 20));
-    listamoto.add(Moto("image/Kawasaki.jpeg","KAWASAKI", 30));
+    buttonenable = false;
+    listamoto.add(Moto("image/Yamaha_YZF.jpg", "YAMAHA", 20));
+    listamoto.add(Moto("image/Fireblade.jpeg", "FIREBLADE", 20));
+    listamoto.add(Moto("image/Kawasaki.jpeg", "KAWASAKI", 30));
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text("Alugar Moto"),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(2.0),
         child: Padding(
@@ -52,10 +60,9 @@ class StateAluguelMotos extends State<AluguelMotos> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                child: Text(
-                  listamoto[i].nome,
+                child: Text("Modelo:${listamoto[i].nome} Valor:${listamoto[i].preco}",
                   style: TextStyle(
-                    fontWeight:FontWeight.bold ,
+                    fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
                 ),
@@ -75,9 +82,7 @@ class StateAluguelMotos extends State<AluguelMotos> {
                         icon: Icon(Icons.navigate_before),
                         color: Colors.white,
                         onPressed: () {
-                          setState(() {
-                            i--;
-                          });
+                          AtivaBotao();
                         },
                       ),
                     ),
@@ -108,7 +113,6 @@ class StateAluguelMotos extends State<AluguelMotos> {
                           setState(() {
                             i++;
                           });
-                          
                         },
                       ),
                     ),
@@ -119,10 +123,6 @@ class StateAluguelMotos extends State<AluguelMotos> {
           ),
         ),
       ),
-      //Text("YAMAHA YZF",style: TextStyle(
-      //fontWeight: FontWeight.bold,
-      //fontSize: 20,
-      //),textAlign: TextAlign.right,)
     );
   }
 }
