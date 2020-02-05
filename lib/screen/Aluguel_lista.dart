@@ -11,9 +11,9 @@ class AluguelMotos extends StatefulWidget {
 }
 
 bool Atcap = false;
-int Capacete = 50;
+
 bool Atroupa = false;
-int Roupa = 80;
+
 int i = 0;
 bool buttonenable;
 
@@ -31,10 +31,15 @@ class StateAluguelMotos extends State<AluguelMotos> {
 
   @override
   Widget build(BuildContext context) {
+    double Capacete = 50;
+    double Roupa = 80;
     buttonenable = false;
     listamoto.add(Moto("image/Yamaha_YZF.jpg", "YAMAHA", 20));
     listamoto.add(Moto("image/Fireblade.jpeg", "FIREBLADE", 20));
     listamoto.add(Moto("image/Kawasaki.jpeg", "KAWASAKI", 30));
+
+    double Total = listamoto[i].preco; 
+    Total=Total+calculacapacete(Capacete)+calcularoupa(Roupa);
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -48,7 +53,7 @@ class StateAluguelMotos extends State<AluguelMotos> {
             children: <Widget>[
               Container(
                 width: 400,
-                height: 300,
+                height: 250,
                 margin: EdgeInsets.only(bottom: 10),
                 alignment: Alignment(0.8, 1.0),
                 decoration: BoxDecoration(
@@ -96,6 +101,11 @@ class StateAluguelMotos extends State<AluguelMotos> {
                       title: Text("Colete de Proteção R\$$Roupa"),
                       activeColor: Colors.redAccent,
                     ),
+                    Card(
+                      child: ListTile(
+                        title: Text("Total:$Total"),
+                      ),
+                    ),
                   ],
                 ),
               )
@@ -106,9 +116,27 @@ class StateAluguelMotos extends State<AluguelMotos> {
     );
   }
 
+  double calculacapacete(double Capacete) {
+    if (Atcap == true) {
+      Capacete=50;
+    } else {
+      Capacete=0;
+    }
+    return Capacete;
+  }
+
+  double calcularoupa(double Roupa) {
+    if (Atroupa == true) {
+      Roupa=80;
+    } else {
+      Roupa=0;
+    }
+    return Roupa;
+  }
+
   Container BotaoSelect() {
     return Container(
-      alignment: Alignment(1.0, 0.4),
+      alignment: Alignment(1.0, 0.1),
       padding: EdgeInsets.all(40),
       margin: EdgeInsets.only(top: 80),
       child: Row(children: [
