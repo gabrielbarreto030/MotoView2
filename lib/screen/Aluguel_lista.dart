@@ -10,6 +10,10 @@ class AluguelMotos extends StatefulWidget {
   }
 }
 
+bool Atcap = false;
+int Capacete = 50;
+bool Atroupa = false;
+int Roupa = 80;
 int i = 0;
 bool buttonenable;
 
@@ -41,7 +45,6 @@ class StateAluguelMotos extends State<AluguelMotos> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Stack(
-            fit: StackFit.loose,
             children: <Widget>[
               Container(
                 width: 400,
@@ -60,69 +63,101 @@ class StateAluguelMotos extends State<AluguelMotos> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                child: Text("Modelo:${listamoto[i].nome} Valor:${listamoto[i].preco}",
+                child: Text(
+                  "Modelo:${listamoto[i].nome} Valor:${listamoto[i].preco}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
                 ),
               ),
+              BotaoSelect(),
               Container(
-                alignment: Alignment(1.0, 0.4),
-                padding: EdgeInsets.all(40),
-                margin: EdgeInsets.only(top: 80),
-                child: Row(children: [
-                  Expanded(
-                    child: Ink(
-                      decoration: const ShapeDecoration(
-                        color: Colors.grey,
-                        shape: CircleBorder(),
-                      ),
-                      child: IconButton(
-                        icon: Icon(Icons.navigate_before),
-                        color: Colors.white,
-                        onPressed: () {
-                          AtivaBotao();
-                        },
-                      ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    SwitchListTile(
+                      value: Atcap,
+                      onChanged: (bool value) {
+                        setState(() {
+                          Atcap = value;
+                        });
+                      },
+                      title: Text("Capacete Extra R\$$Capacete"),
+                      activeColor: Colors.redAccent,
                     ),
-                  ),
-                  Expanded(
-                    child: Ink(
-                      decoration: const ShapeDecoration(
-                        color: Colors.red,
-                        shape: CircleBorder(),
-                      ),
-                      child: IconButton(
-                        icon: Icon(Icons.check),
-                        color: Colors.white,
-                        onPressed: () {},
-                      ),
+                    SwitchListTile(
+                      value: Atroupa,
+                      onChanged: (bool value) {
+                        setState(() {
+                          Atroupa = value;
+                        });
+                      },
+                      title: Text("Colete de Proteção R\$$Roupa"),
+                      activeColor: Colors.redAccent,
                     ),
-                  ),
-                  Expanded(
-                    child: Ink(
-                      decoration: const ShapeDecoration(
-                        color: Colors.grey,
-                        shape: CircleBorder(),
-                      ),
-                      child: IconButton(
-                        icon: Icon(Icons.navigate_next),
-                        color: Colors.black,
-                        onPressed: () {
-                          setState(() {
-                            i++;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                ]),
-              ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Container BotaoSelect() {
+    return Container(
+      alignment: Alignment(1.0, 0.4),
+      padding: EdgeInsets.all(40),
+      margin: EdgeInsets.only(top: 80),
+      child: Row(children: [
+        Expanded(
+          child: Ink(
+            decoration: const ShapeDecoration(
+              color: Colors.grey,
+              shape: CircleBorder(),
+            ),
+            child: IconButton(
+              icon: Icon(Icons.navigate_before),
+              color: Colors.white,
+              onPressed: () {
+                AtivaBotao();
+              },
+            ),
+          ),
+        ),
+        Expanded(
+          child: Ink(
+            decoration: const ShapeDecoration(
+              color: Colors.red,
+              shape: CircleBorder(),
+            ),
+            child: IconButton(
+              icon: Icon(Icons.check),
+              color: Colors.white,
+              onPressed: () {},
+            ),
+          ),
+        ),
+        Expanded(
+          child: Ink(
+            decoration: const ShapeDecoration(
+              color: Colors.grey,
+              shape: CircleBorder(),
+            ),
+            child: IconButton(
+              icon: Icon(Icons.navigate_next),
+              color: Colors.black,
+              onPressed: () {
+                setState(() {
+                  i++;
+                });
+              },
+            ),
+          ),
+        ),
+      ]),
     );
   }
 }

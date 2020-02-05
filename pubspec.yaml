@@ -47,6 +47,9 @@ flutter:
     - image/Yamaha_YZF.jpg
     - image/Fireblade.jpeg
     - image/Kawasaki.jpeg
+    - image/jaqueta_select.jpg
+    - image/capacete_select.jpg
+    -
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
