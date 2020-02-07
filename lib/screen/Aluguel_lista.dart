@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motovibe/model/Moto.dart';
+import 'package:motovibe/screen/Agendamento.dart';
 
 class AluguelMotos extends StatefulWidget {
   @override
@@ -164,7 +165,9 @@ class StateAluguelMotos extends State<AluguelMotos> {
             child: IconButton(
               icon: Icon(Icons.check),
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Agendamento()));
+              },
             ),
           ),
         ),
