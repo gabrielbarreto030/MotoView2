@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:date_format/date_format.dart';
 
 class Agendamento extends StatefulWidget{
   @override
@@ -36,14 +37,18 @@ class Horario{
 
 class StateAgendamento extends State<Agendamento>{
    DateTime _date=DateTime.now();//Pegar Data Atual
-   List<Horario> _horarios=Horario.getHorario();
-   List<DropdownMenuItem<Horario>> _dropdownhorarios;
-   Horario _selectedHorario;
+
+   String datafeita;
+  
+   List<Horario> _horarios=Horario.getHorario();//Instacia Classe Horario e Pega Lista
+   List<DropdownMenuItem<Horario>> _dropdownhorarios;//Variavel que os Horarios vão transformar em DropDownItens
+   Horario _selectedHorario;//Hora Selecionada 
    
    @override
    void initState(){
-     _dropdownhorarios=Builddrophorarios(_horarios);
-     _selectedHorario=_dropdownhorarios[0].value;
+     _dropdownhorarios=Builddrophorarios(_horarios);//Tranforma em DropDown Lista de Horas
+     _selectedHorario=_dropdownhorarios[0].value;//Seleciona 1ºhora como Hora Inicial
+     datafeita=formatDate(_date, [dd, '-', mm, '-', yyyy]);
      super.initState();
    }
 
@@ -56,6 +61,8 @@ class StateAgendamento extends State<Agendamento>{
        return horas;
    }
 
+  //String datafeita=formatDate(_date, [yyyy, '-', mm, '-', dd]).toString();
+
    Future<Null> FazData(BuildContext context) async {
       final DateTime DataClick= await showDatePicker(
         context: context,
@@ -63,10 +70,12 @@ class StateAgendamento extends State<Agendamento>{
         firstDate: DateTime(2020),
         lastDate: DateTime(2025)
       );
+      
       if(DataClick !=null && DataClick!=_date){
         setState(() {
           _date=DataClick;
           print(_date.toString());
+          datafeita=formatDate(_date, [dd, '-', mm, '-', yyyy]);
         });
       }
     }
@@ -102,7 +111,7 @@ class StateAgendamento extends State<Agendamento>{
               value: _selectedHorario,
               items: _dropdownhorarios, onChanged: ChangedHorario),
             SizedBox(height: 40.0),
-            Text("Dia:DataSelecionada Hora:${_selectedHorario.hora}")
+            Text("Dia:${datafeita} Hora:${_selectedHorario.hora}")
 
 
           ],),
