@@ -38,8 +38,9 @@ class StateAluguelMotos extends State<AluguelMotos> {
     listamoto.add(Moto("image/Yamaha_YZF.jpg", "YAMAHA", 20));
     listamoto.add(Moto("image/Fireblade.jpeg", "FIREBLADE", 20));
     listamoto.add(Moto("image/Kawasaki.jpeg", "KAWASAKI", 30));
-
-    double Total = listamoto[i].preco; 
+    
+    double Total = listamoto[i].preco;
+    double totalAcessorios= calculacapacete(Capacete)+calcularoupa(Roupa);
     Total=Total+calculacapacete(Capacete)+calcularoupa(Roupa);
     // TODO: implement build
     return Scaffold(
@@ -77,7 +78,7 @@ class StateAluguelMotos extends State<AluguelMotos> {
                   ),
                 ),
               ),
-              BotaoSelect(),
+              BotaoSelect(listamoto[i].nome,listamoto[i].preco,totalAcessorios),
               Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -97,6 +98,13 @@ class StateAluguelMotos extends State<AluguelMotos> {
                       onChanged: (bool value) {
                         setState(() {
                           Atroupa = value;
+                          if(Atroupa=true){
+
+                          }else{
+                            
+                          }
+
+                          
                         });
                       },
                       title: Text("Colete de Proteção R\$$Roupa"),
@@ -135,7 +143,8 @@ class StateAluguelMotos extends State<AluguelMotos> {
     return Roupa;
   }
 
-  Container BotaoSelect() {
+  Container BotaoSelect(String motoEsc,double precoEsc, double acessoEsc) {
+    
     return Container(
       alignment: Alignment(1.0, 0.1),
       padding: EdgeInsets.all(40),
@@ -166,7 +175,7 @@ class StateAluguelMotos extends State<AluguelMotos> {
               icon: Icon(Icons.check),
               color: Colors.white,
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Agendamento()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Agendamento(motoEsc,precoEsc,acessoEsc)));
               },
             ),
           ),
