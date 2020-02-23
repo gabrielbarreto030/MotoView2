@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motovibe/screen/Agendamento.dart';
+import 'package:motovibe/screen/Boleto.dart';
 import 'package:motovibe/screen/CreditCart.dart';
 
 class Pagamento extends StatefulWidget {
@@ -42,7 +43,9 @@ class _Pagamento extends State<Pagamento>{
           Row(children: <Widget>[Expanded(child: Text("Local:",textAlign:TextAlign.end)),
           Expanded(child: Text("$local",textAlign:TextAlign.start))
           ],),
-          RaisedButton(onPressed: (){},child:Text("Dinheiro")),
+          RaisedButton(onPressed: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> BoletoBancario()));
+          },child:Text("Boleto")),
           RaisedButton(onPressed: (){
             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CreditCardPage()));
           },child:Text("Cartã de Crédito"))

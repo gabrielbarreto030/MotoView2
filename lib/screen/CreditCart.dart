@@ -53,7 +53,7 @@ class StateCredidCard extends State<CreditCardPage> {
                     cardHolderName: nomeC,
                     cvvCode: cvvC,
                     showBackView: showBackOfCard,
-                    cardbgColor: Colors.white,
+                    cardbgColor: Colors.blue,
                     height: 175,
                     textStyle: TextStyle(color: Colors.black),
                     animationDuration: Duration(seconds: 1),

@@ -16,7 +16,8 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
-dependencies:
+dependencies:  
+  pdf: ^1.5.0
   flutter_masked_text: ^0.8.0
   date_format: ^1.0.8
   flutter:
@@ -26,6 +27,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   flutter_credit_card: 0.1.1
+  printing: ^3.1.0
+  path_provider: ^1.6.1
 
 dev_dependencies:
   flutter_test:
