@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:motovibe/model/cliente.dart';
 import 'package:motovibe/screen/Inicio.dart';
 
-void main() => runApp(Home());
+import 'http/webclient.dart';
 
+void main(){ runApp(Home());
+ 
+  findAll().then((clientes)=>print("new cliente $clientes"));
+
+}
 class Home extends StatelessWidget {
+  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
