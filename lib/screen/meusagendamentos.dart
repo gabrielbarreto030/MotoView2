@@ -3,9 +3,16 @@ import 'package:motovibe/components/progress.dart';
 import 'package:motovibe/http/webclient.dart';
 import 'package:motovibe/model/DadosSalvos.dart';
 
-class MeusAgendamentos extends StatelessWidget {
+
+
+class MeusAgendamentos extends StatefulWidget {
   //DadosSalvos dado = DadosSalvos("yakuza", 100, "23/12/1999", "10:00");
 
+  @override
+  _MeusAgendamentosState createState() => _MeusAgendamentosState();
+}
+
+class _MeusAgendamentosState extends State<MeusAgendamentos> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -23,20 +30,33 @@ class MeusAgendamentos extends StatelessWidget {
                 case ConnectionState.active:
                   break;
                 case ConnectionState.done:
+                
+                
                 final List<DadosSalvos> dado = snapshot.data;
+                final List<DadosSalvos> dadosjuntos=dado;
+                debugPrint((dado.length).toString());
+                dadosjuntos.forEach((itemlista){ montaAgendamentos(itemlista);});
                 
               return Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
-                  children: <Widget>[
-                    
-                      controiAgendamentos(dado[0]),
-                      controiAgendamentos(dado[1]),
+                  
+                      children: List.generate(dado.length,(index){
+                        return controiAgendamentos(dado[index]);
+                      })
+                
+                  
+
+                    //dado.forEach((item) =>controiAgendamentos(item)),
+                        
+                     // controiAgendamentos(dado[0]),
+                      //controiAgendamentos(dado[1]),
+                       //controiAgendamentos(dado[2]),
 
 
                     
                     
-                  ],
+                 
                 ),
               );
                   break;
@@ -46,6 +66,12 @@ class MeusAgendamentos extends StatelessWidget {
               
             }));
   }
+
+Column montaAgendamentos(DadosSalvos itemlista) {
+return   controiAgendamentos(itemlista);
+
+; 
+}
 
   Column controiAgendamentos(DadosSalvos dados) {
     return Column(
@@ -67,3 +93,4 @@ class MeusAgendamentos extends StatelessWidget {
     );
   }
 }
+
