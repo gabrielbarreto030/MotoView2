@@ -3,8 +3,6 @@ import 'package:motovibe/components/progress.dart';
 import 'package:motovibe/http/webclient.dart';
 import 'package:motovibe/model/DadosSalvos.dart';
 
-
-
 class MeusAgendamentos extends StatefulWidget {
   //DadosSalvos dado = DadosSalvos("yakuza", 100, "23/12/1999", "10:00");
 
@@ -25,53 +23,38 @@ class _MeusAgendamentosState extends State<MeusAgendamentos> {
                 case ConnectionState.none:
                   break;
                 case ConnectionState.waiting:
-                return Progress();
+                  return Progress();
                   break;
                 case ConnectionState.active:
                   break;
                 case ConnectionState.done:
-                
-                
-                final List<DadosSalvos> dado = snapshot.data;
-                final List<DadosSalvos> dadosjuntos=dado;
-                debugPrint((dado.length).toString());
-                dadosjuntos.forEach((itemlista){ montaAgendamentos(itemlista);});
-                
-              return Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  
-                      children: List.generate(dado.length,(index){
+                if(snapshot.hasData){
+                  final List<DadosSalvos> dado = snapshot.data;
+                  if (dado.isNotEmpty) {
+                    return Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                          children: List.generate(dado.length, (index) {
                         return controiAgendamentos(dado[index]);
-                      })
-                
+                      })),
+                    );
+                  }
+
+                }
                   
+                  return Center(child: Text("Nenhum Agendamento Feito"));
 
-                    //dado.forEach((item) =>controiAgendamentos(item)),
-                        
-                     // controiAgendamentos(dado[0]),
-                      //controiAgendamentos(dado[1]),
-                       //controiAgendamentos(dado[2]),
-
-
-                    
-                    
-                 
-                ),
-              );
                   break;
-                
               }
-              return Text("Erro");
-              
+              return Center(child: Text("Erro"));
             }));
   }
 
-Column montaAgendamentos(DadosSalvos itemlista) {
-return   controiAgendamentos(itemlista);
+  Column montaAgendamentos(DadosSalvos itemlista) {
+    return controiAgendamentos(itemlista);
 
-; 
-}
+    ;
+  }
 
   Column controiAgendamentos(DadosSalvos dados) {
     return Column(
@@ -93,4 +76,3 @@ return   controiAgendamentos(itemlista);
     );
   }
 }
-

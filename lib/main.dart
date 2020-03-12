@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:motovibe/model/DadosSalvos.dart';
 import 'package:motovibe/model/cliente.dart';
 import 'package:motovibe/screen/Inicio.dart';
 
 import 'http/webclient.dart';
 
 void main(){ runApp(Home());
- 
+  savaAgenda(DadosSalvos("YKZ",300,"10/03/2020","10:00")).then((dado)=> print("Salvo ou n:$dado"));
   findAll().then((clientes)=>print("new cliente $clientes"));
 
 }

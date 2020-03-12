@@ -61,7 +61,7 @@ class Inicio extends StatelessWidget {
                       fit: BoxFit.cover,
                       alignment: Alignment.center,
                     )),
-                child: Text("Meus Agendamentos",textAlign: TextAlign.start,style: TextStyle(
+                child: Text("Aluguel Agendado",textAlign: TextAlign.start,style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
