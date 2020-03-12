@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:motovibe/screen/Confimacao.dart';
 //import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 class CreditCardPage extends StatefulWidget {
@@ -113,6 +114,10 @@ class StateCredidCard extends State<CreditCardPage> {
                 ],
               ),
             ),
+            RaisedButton(onPressed: (){
+
+              //Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Confirma() ));
+            },child:Text("Confirmar"))
           ],
         ),
       ),

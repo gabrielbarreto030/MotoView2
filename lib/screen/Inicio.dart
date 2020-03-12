@@ -11,13 +11,15 @@ class Inicio extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Colors.blueGrey.shade200,
       appBar: AppBar(
         title: Text("MotoView"),
       ),
       body: ListView(
+        
         children: <Widget>[
           Card(
-            margin: EdgeInsets.all(15),
+            margin: EdgeInsets.all(10),
             child: GestureDetector(
               onTap: (){
                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=> AluguelMotos()));
@@ -44,8 +46,35 @@ class Inicio extends StatelessWidget {
             //child:
           ),
           Card(
+            margin: EdgeInsets.all(10),
+            child: GestureDetector(
+              onTap: (){
+                //Navigator.of(context).push(MaterialPageRoute(builder: (context)=> AluguelMotos()));
+              },
+              child: Container(
+                alignment: Alignment(-1.0,1.0),
+                width: 200,
+                height: 150,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage("image/historicomoto.jpg"),
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
+                )),
+                child: Text("Historico de Agendamentos",textAlign: TextAlign.start,style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),),
+              ),
+            ),
+
+            //child:
+          ),
+          Card(
             
-            margin: EdgeInsets.all(15),
+            margin: EdgeInsets.all(10),
             child: GestureDetector(
               onTap:(){
                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MeusAgendamentos()));

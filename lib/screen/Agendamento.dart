@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
+import 'package:motovibe/screen/Confimacao.dart';
 
 import 'Pagamento.dart';
 
@@ -241,7 +242,7 @@ class StateAgendamento extends State<Agendamento> {
               Expanded(
                 child: RaisedButton(
                   onPressed: () {//modelMoto,totalAll ,datafeita,_selecthorario,localselecionado
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Pagamento(modelMoto,totalAll ,datafeita,selectedHorario.hora,localSelecionado)));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Confirma(modelMoto,totalAll ,datafeita,selectedHorario.hora,localSelecionado)));
                   },
                   child: Text("Continuar"),
                 ),

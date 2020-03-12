@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:motovibe/model/DadosSalvos.dart';
 import 'package:motovibe/model/cliente.dart';
 import 'package:motovibe/screen/Inicio.dart';
+import 'package:motovibe/screen/historico.dart';
 
 import 'http/webclient.dart';
 
