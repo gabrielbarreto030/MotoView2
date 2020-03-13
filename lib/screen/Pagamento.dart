@@ -5,7 +5,7 @@ import 'package:motovibe/screen/CreditCart.dart';
 
 class Pagamento extends StatefulWidget {
   final String modelo;
-  final double total;
+  final int total;
   final String data;
   final String hora;
   final String local;
@@ -16,7 +16,7 @@ class Pagamento extends StatefulWidget {
 
 class _Pagamento extends State<Pagamento>{
   final String modelo;
-  final double total;
+  final int total;
   final String data;
   final String hora;
   final String local;

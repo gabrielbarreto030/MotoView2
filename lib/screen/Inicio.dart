@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motovibe/screen/Aluguel_lista.dart';
+import 'package:motovibe/screen/historico.dart';
 import 'package:motovibe/screen/meusagendamentos.dart';
 
 class Inicio extends StatelessWidget {
@@ -49,7 +50,7 @@ class Inicio extends StatelessWidget {
             margin: EdgeInsets.all(10),
             child: GestureDetector(
               onTap: (){
-                //Navigator.of(context).push(MaterialPageRoute(builder: (context)=> AluguelMotos()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HistoricoMotos()));
               },
               child: Container(
                 alignment: Alignment(-1.0,1.0),

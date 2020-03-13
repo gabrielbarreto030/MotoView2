@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:motovibe/bancodedados/dao.dart';
 import 'package:motovibe/components/progress.dart';
 import 'package:motovibe/http/webclient.dart';
 import 'package:motovibe/model/DadosSalvos.dart';
@@ -16,13 +17,15 @@ class HistoricoMotos extends StatefulWidget{
 }
 
 class _HistoricoMotos extends State<HistoricoMotos>{
+
  @override
   Widget build(BuildContext context) {
+    final MotoDao dao= MotoDao();
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(title: Text("Historico")),
         body: FutureBuilder<List<DadosSalvos>>(
-            future: findAll(),
+            future: dao.Buscatudo(),
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:

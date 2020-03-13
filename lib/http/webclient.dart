@@ -26,7 +26,7 @@ class LogginInterceptor implements InterceptorContract {
 }
 
 Future<List<DadosSalvos>> findAll() async {
-  final Response response = await cliente.get(URLhttp).timeout(Duration(seconds: 5)).catchError((error)=> print("null"));
+  final Response response = await cliente.get(URLhttp).timeout(Duration(seconds: 5));
    
   
   final List<dynamic> jsondecoded = jsonDecode(response.body);

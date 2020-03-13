@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Moto {
   final String imagem;
   final String nome;
-  final double preco;
+  final int preco;
 
 
   

@@ -9,7 +9,7 @@ import 'package:motovibe/screen/Inicio.dart';
 
 class Confirma extends StatefulWidget {
   final String modelo;
-  final double total;
+  final int total;
   final String data;
   final String hora;
   final String local;
@@ -20,7 +20,7 @@ class Confirma extends StatefulWidget {
 
 class _Pagamento extends State<Confirma>{
   final String modelo;
-  final double total;
+  final int total;
   final String data;
   final String hora;
   final String local;

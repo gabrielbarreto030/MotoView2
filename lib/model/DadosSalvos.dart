@@ -2,7 +2,7 @@
  
  class DadosSalvos{
   String modelo;
-  double valor;
+  int valor;
   String data;
   String hora;
 

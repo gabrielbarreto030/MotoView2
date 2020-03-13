@@ -32,15 +32,15 @@ class StateAluguelMotos extends State<AluguelMotos> {
 
   @override
   Widget build(BuildContext context) {
-    double Capacete = 50;
-    double Roupa = 80;
+    int Capacete = 50;
+    int Roupa = 80;
     buttonenable = false;
     listamoto.add(Moto("image/Yamaha_YZF.jpg", "YAMAHA", 20));
     listamoto.add(Moto("image/Fireblade.jpeg", "FIREBLADE", 20));
     listamoto.add(Moto("image/Kawasaki.jpeg", "KAWASAKI", 30));
     
-    double Total = listamoto[i].preco;
-    double totalAcessorios= calculacapacete(Capacete)+calcularoupa(Roupa);
+    int Total = listamoto[i].preco;
+    int totalAcessorios= calculacapacete(Capacete)+calcularoupa(Roupa);
     Total=Total+calculacapacete(Capacete)+calcularoupa(Roupa);
     // TODO: implement build
     return Scaffold(
@@ -125,7 +125,7 @@ class StateAluguelMotos extends State<AluguelMotos> {
     );
   }
 
-  double calculacapacete(double Capacete) {
+  int calculacapacete(int Capacete) {
     if (Atcap == true) {
       Capacete=50;
     } else {
@@ -134,7 +134,7 @@ class StateAluguelMotos extends State<AluguelMotos> {
     return Capacete;
   }
 
-  double calcularoupa(double Roupa) {
+ int calcularoupa(int Roupa) {
     if (Atroupa == true) {
       Roupa=80;
     } else {
@@ -143,7 +143,7 @@ class StateAluguelMotos extends State<AluguelMotos> {
     return Roupa;
   }
 
-  Container BotaoSelect(String motoEsc,double precoEsc, double acessoEsc) {
+  Container BotaoSelect(String motoEsc,int precoEsc, int acessoEsc) {
     
     return Container(
       alignment: Alignment(1.0, 0.1),

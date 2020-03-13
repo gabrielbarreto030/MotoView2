@@ -6,7 +6,7 @@ class MotoDao {
   static const String tablesql = "CREATE TABLE $tablename("
       "${_id} INTEGER PRIMARY KEY, "
       "${_modelo} TEXT, "
-      "${_preco} INTEGER,"
+      "${_preco} DECIMAL,"
       "${_data} TEXT,"
       "${_hora} TEXT"
       ") ";

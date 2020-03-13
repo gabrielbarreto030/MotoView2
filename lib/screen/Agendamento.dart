@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
@@ -7,8 +9,8 @@ import 'Pagamento.dart';
 
 class Agendamento extends StatefulWidget {
   final String modelMoto;
-  final double precoMoto;
-  final double acessoMoto;
+  final int precoMoto;
+  final int acessoMoto;
   const Agendamento(this.modelMoto, this.precoMoto, this.acessoMoto);
   @override
   State<StatefulWidget> createState() {
@@ -44,8 +46,8 @@ class Horario {
 
 class StateAgendamento extends State<Agendamento> {
   final String modelMoto;
-  final double precoMoto;
-  final double acessoMoto;
+  final int precoMoto;
+  final int acessoMoto;
   StateAgendamento(this.modelMoto, this.precoMoto, this.acessoMoto);
   DateTime _date = DateTime.now(); //Pegar Data Atual
 
@@ -102,7 +104,7 @@ class StateAgendamento extends State<Agendamento> {
 
   @override
   Widget build(BuildContext context) {
-    final double totalAll= precoMoto+acessoMoto;
+    final int totalAll= precoMoto+acessoMoto;
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
