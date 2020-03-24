@@ -10,16 +10,17 @@ Criar uma aplicação de agendamentos de aluguel de motos
 
 # Funcionalidades
 
--Seleção de Motos com Acessorios
--Seleção de Horario,dia e Local do agendamento
--Historico de agendamentos e Agendamento em Andamento
--Salvamento de Dados em Web api e Localmente
+Seleção de Motos com Acessorios/
+Seleção de Horario,dia e Local do agendamento/
+Historico de agendamentos e Agendamento em Andamento/
+Salvamento de Dados em Web api e Localmente
 
 # Funcionalidades com implementação em Andamento
--Simulação de Pagamento com Boleto e Cartão de Crédito
--Sistema de Login e Cadastro
+Simulação de Pagamento com Boleto e Cartão de Crédito/
+Sistema de Login e Cadastro
 
 # Melhorias em Andamento
--Design do Aplicativo
--Tratamentos de Erros
+Design do Aplicativo/
+Tratamentos de Erros/
+Aplicando padrão de Bloc Pattern
 
